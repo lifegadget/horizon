@@ -43,9 +43,4 @@ RUN mkdir -p /certs /static /static/auth \
 EXPOSE $SERVE_PORT
 WORKDIR /horizon
 VOLUME ["/horizon", "/certs", "/static"]
-CMD [ \
-  "hz", "serve", \
-  "$HZ_DEV", \
-  "$AUTO_CREATE_COLLECTION", "$AUTO_CREATE_INDEX", \
-  "--connect $DB_HOST:$DB_PORT" \
-  ]
+CMD ["hz", "serve", $HZ_DEV, $AUTO_CREATE_COLLECTION, $AUTO_CREATE_INDEX, "--connect $DB_HOST:$DB_PORT"]
